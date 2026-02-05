@@ -1,0 +1,19 @@
+# Python internals
+__pycache__/
+*.py[cod]
+
+# Environment & Secrets
+.env
+.venv/
+venv/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# OS specific
+.DS_Store
+Thumbs.db
