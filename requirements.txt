@@ -1,0 +1,7 @@
+yfinance
+pandas
+numpy
+google-adk
+python-dotenv
+supabase
+websockets

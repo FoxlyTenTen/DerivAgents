@@ -7,13 +7,14 @@ from .subAgents.MarketAnalysis.agent import market_analysis_agent
 from .subAgents.NewsAgent.agent import news_agent
 from .subAgents.SentimentAgent.agent import sentiment_agent
 from .subAgents.MergeAgent.agent import merge_agent
+from .subAgents.BehaviorAgent.agent import behavior_agent
 
 # 1. Define the Sequential Research Step
 # Using SequentialAgent to prevent race conditions during file saves (stale session error).
 research_group = ParallelAgent(
     name="research_group",
-    sub_agents=[market_analysis_agent, news_agent, sentiment_agent],
-    description="Runs Market Analysis, News, and Sentiment agents in parallel."
+    sub_agents=[market_analysis_agent, news_agent, sentiment_agent, behavior_agent],
+    description="Runs Market Analysis, News, Sentiment, and Behavior agents in parallel."
 )
 
 # 2. Define the Full Real-Time Analysis Workflow

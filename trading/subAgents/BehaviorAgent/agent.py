@@ -1,20 +1,16 @@
 from google.adk.agents import LlmAgent
-from google.adk.tools.agent_tool import AgentTool
-
+from .tools import get_behavior_metrics
 from . import prompt
 
-model = "gemini-2.0-flash-exp"
+MODEL = "gemini-2.5-flash"
 
-root_agent = LlmAgent(
-    name="trader_coordinator",
-    model=model,
-    instruction=prompt.TRADER_COORDINATOR,
+behavior_agent = LlmAgent(
+    name="behavior_agent",
+    model=MODEL,
+    instruction=prompt.BEHAVIOR_AGENT,
     description=(
-        "Understand user intent and route tasks to specialist agents,"
-        "Route tasks to specialist agents"
-        "Combine agent outputs into one explanation"
-        "Enforce no-signal and no-prediction rules"
-        "Structure final response for UI and chatbot"
+        "Analyzes trader psychology and history to detect 'Tilt', revenge trading, and toxic asset patterns."
     ),
-    tools=[]
+    tools=[get_behavior_metrics],
+    output_key="behavior_agent_results"
 )
